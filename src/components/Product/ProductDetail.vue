@@ -1,5 +1,6 @@
 <template>
   <div>
+    <button @click="$router.go(-1)">Back</button>
     <h1>Product Detail</h1>
     <p>Here is the detail of the product with ID: {{ productId }}</p>
     <p v-if="categoryId">Category ID: {{ categoryId }}</p>
