@@ -1,28 +1,24 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import NotFound from '@/components/Layout/NotFound.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    { path: '/', component: () => import('../components/Home/HomePage.vue') },
     {
-      path: '/',
-      name: 'home',
-      component: () => import('../components/Home/HomePage.vue'),
-    },
-    {
-      path: '/contact',
-      name: 'contact',
+      path: '/contact-us',
       component: () => import('../components/Home/Contact.vue'),
+      name: 'contact',
     },
-    {
-      path: '/products',
-      name: 'products',
-      component: () => import('../components/Product/ProductList.vue'),
-    },
+    { path: '/contact', redirect: { name: 'contact' } },
+    { path: '/productList', component: () => import('../components/Product/ProductList.vue') },
     {
       path: '/product/:productId/:categoryId?',
-      name: 'productDetail',
       component: () => import('../components/Product/ProductDetail.vue'),
+      name: 'productDetails',
+      props: true,
     },
+    { path: '/products', component: () => import('../components/Product/ProductList.vue') },
   ],
 })
 
