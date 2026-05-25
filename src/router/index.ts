@@ -19,6 +19,7 @@ const router = createRouter({
       props: true,
     },
     { path: '/products', component: () => import('../components/Product/ProductList.vue') },
+    { path: '/:catchAll(.*)', component: NotFound },
   ],
 })
 
