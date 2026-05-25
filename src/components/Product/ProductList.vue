@@ -1,5 +1,6 @@
 <template>
   <div>
+    <button @click="$router.go(-1)">Back</button>
     <h1>Product List</h1>
     <p>Here is the list of products:</p>
     <div v-for="product in products">
